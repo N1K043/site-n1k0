@@ -42,6 +42,17 @@
     #lang-toggle{padding:6px 12px; border-radius:6px; background:#333; color:#ffd346; border:none; cursor:pointer;}
     .logo { height: 42px; width: auto; margin-right: 20px; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .logo:hover { transform: scale(1.1); box-shadow: 0 0 15px #f72585, 0 0 25px #3a0ca3; }
+    .ciel-logo {
+      height: 36px;
+      margin-left: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ciel-logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #ffd346, 0 0 30px #f72585;
+    }
 
     @media (max-width: 768px) {
       .container { flex-direction: column; align-items: flex-start; }
@@ -90,7 +101,10 @@
       </ul>
     </nav>
 
-    <button id="lang-toggle">English</button>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <button id="lang-toggle">English</button>
+      <a href="#ciel-section"><img src="https://raw.githubusercontent.com/N1K043/pp/main/nikooo.jpg" alt="Filière CIEL" class="ciel-logo"></a>
+    </div>
   </div>
 </header>
 
@@ -100,6 +114,14 @@
     <h1>Présentation</h1>
     <div class="presentation-box">
       <p>Bonjour je suis Léo MANUEL alias N1K0 sur les réseaux je suis en 1er CIEL au lycée La Chartreuse. Ce que je fais de mon temps libre : créer des jeux vidéo, faire de la musique et bien d'autres choses encore.</p>
+    </div>
+  </section>
+
+  <!-- Filière CIEL -->
+  <section id="ciel-section">
+    <h1>Filière CIEL</h1>
+    <div class="presentation-box">
+      <p>Je suis en 1er CIEL au lycée La Chartreuse, une filière qui m'apprend la gestion de projets, les sciences et les technologies tout en développant ma créativité.</p>
     </div>
   </section>
 
@@ -167,6 +189,7 @@
 <script>
   const pages = {
     presentation: document.getElementById('page-presentation'),
+    ciel: document.getElementById('ciel-section'),
     flstudio: document.getElementById('page-flstudio'),
     oneshot: document.getElementById('page-oneshot'),
     youtube: document.getElementById('page-youtube'),
@@ -190,6 +213,8 @@
   const translations = {
     "Présentation":"Presentation",
     "Bonjour je suis Léo MANUEL alias N1K0 sur les réseaux je suis en 1er CIEL au lycée La Chartreuse. Ce que je fais de mon temps libre : créer des jeux vidéo, faire de la musique et bien d'autres choses encore.":"Hello, I am Léo MANUEL aka N1K0 on social networks. I am in 1st CIEL at Lycée La Chartreuse. In my free time, I create video games, make music, and many other things.",
+    "Filière CIEL":"CIEL Program",
+    "Je suis en 1er CIEL au lycée La Chartreuse, une filière qui m'apprend la gestion de projets, les sciences et les technologies tout en développant ma créativité.":"I am in 1st CIEL at Lycée La Chartreuse, a program that teaches me project management, sciences and technologies while developing my creativity.",
     "FL Studio":"FL Studio",
     "Mes créations musicales":"My Musical Creations",
     "Je compose des beats, thèmes atmosphériques et musiques inspirées des jeux vidéo. J'utilise surtout Harmor, Sytrus, Flex et divers plugins externes.":"I compose beats, atmospheric themes and video game inspired music. I mainly use Harmor, Sytrus, Flex and various external plugins.",
