@@ -22,7 +22,7 @@
     section.active{display:block;}
     @keyframes fade{from{opacity:0}to{opacity:1}}
     h1,h2{color:#ffd346;}
-    .card{background:rgba(30,30,30,0.85); border:1px solid #333; padding:20px; border-radius:12px; margin:16px 0; backdrop-filter: blur(4px);}
+    .card{background:rgba(30,30,30,0.85); border:1px solid #333; padding:20px; border-radius:12px; margin:16px 0; backdrop-filter: blur(4px); transition: transform 0.3s ease, opacity 0.3s ease;}
     .presentation-box {
       border: 2px solid #ffd346;
       padding: 20px;
@@ -31,7 +31,7 @@
       box-shadow: 0 0 15px rgba(255, 211, 70, 0.5), 0 0 30px rgba(255, 211, 70, 0.2);
       backdrop-filter: blur(4px);
       margin-top: 16px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
     }
     .presentation-box:hover {
       transform: translateY(-5px);
@@ -62,6 +62,14 @@
     nav a:nth-child(4){ animation-delay:0.8s; }
     nav a:nth-child(5){ animation-delay:1s; }
     @keyframes menu-fade { 0%{opacity:0; transform:translateY(-10px);} 100%{opacity:1; transform:translateY(0);} }
+
+    /* Réduction cartes mobile au scroll */
+    @media (max-width: 768px) {
+      .card.small, .presentation-box.small {
+        transform: scale(0.95);
+        opacity: 0.9;
+      }
+    }
   </style>
 </head>
 <body>
@@ -178,6 +186,7 @@
   window.addEventListener('hashchange', showPage);
   showPage();
 
+  // Traduction FR/EN
   const translations = {
     "Présentation":"Presentation",
     "Bonjour je suis Léo MANUEL alias N1K0 sur les réseaux je suis en 1er CIEL au lycée La Chartreuse. Ce que je fais de mon temps libre : créer des jeux vidéo, faire de la musique et bien d'autres choses encore.":"Hello, I am Léo MANUEL aka N1K0 on social networks. I am in 1st CIEL at Lycée La Chartreuse. In my free time, I create video games, make music, and many other things.",
@@ -221,6 +230,24 @@
       }
     });
   });
+
+  // Réduction cartes au scroll sur mobile
+  function handleScroll() {
+    if(window.innerWidth <= 768) {
+      const scrollY = window.scrollY;
+      document.querySelectorAll('.card, .presentation-box').forEach(el => {
+        if(scrollY > 50){
+          el.classList.add('small');
+        } else {
+          el.classList.remove('small');
+        }
+      });
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', handleScroll);
+  handleScroll();
 </script>
 
 </body>
