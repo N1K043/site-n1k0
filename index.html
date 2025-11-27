@@ -32,10 +32,16 @@
   .logo:hover { transform: scale(1.1); box-shadow:0 0 15px #f72585, 0 0 25px #3a0ca3; }
   .ciel-icon { height:36px; border-radius:8px; cursor:pointer; transition:transform 0.3s ease, box-shadow 0.3s ease; }
   .ciel-icon:hover { transform:scale(1.1); box-shadow:0 0 15px #ffd346,0 0 30px #f72585; }
-  #ciel-menu {display:none; position:absolute; top:42px; left:0; background:rgba(30,30,30,0.95); list-style:none; padding:10px; border-radius:8px; border:1px solid #ffd346; min-width:180px; z-index:10;}
+  #ciel-menu {display:none; position:absolute; top:42px; left:0; background:rgba(30,30,30,0.95); list-style:none; padding:10px; border-radius:8px; border:1px solid #ffd346; min-width:180px; z-index:10; opacity:0;}
+  #ciel-menu.show { display:block; animation:slideFadeIn 0.3s ease forwards; }
   #ciel-menu li { margin:8px 0; }
   #ciel-menu li a { color:#ffd346; text-decoration:none; display:block; padding:4px 8px; border-radius:4px; transition: background 0.2s ease; }
   #ciel-menu li a:hover { background: rgba(255,213,70,0.2); }
+
+  @keyframes slideFadeIn {
+    0% {opacity:0; transform:translateY(-10px);}
+    100% {opacity:1; transform:translateY(0);}
+  }
 
   @media (max-width:768px){
     .container{flex-direction:column; align-items:flex-start;}
@@ -85,35 +91,20 @@
       <img src="https://raw.githubusercontent.com/N1K043/pp/main/nikooo.jpg" alt="Filière CIEL" class="ciel-icon" id="ciel-icon">
       <ul id="ciel-menu">
         <li><a href="#page-presentation" class="ciel-link">Présentation CIEL</a></li>
-        <li><a href="#ciel-section" class="ciel-link">Filière CIEL</a></li>
-        <li><a href="#special-ciel" class="ciel-link">Spécial CIEL</a></li>
       </ul>
     </div>
   </div>
 </header>
 
 <main class="container">
-  <!-- Présentation -->
+  <!-- Présentation CIEL (fusion) -->
   <section id="page-presentation">
-    <h1>Présentation</h1>
+    <h1>Présentation CIEL</h1>
     <div class="presentation-box">
-      <p>Bonjour je suis Léo MANUEL alias N1K0 sur les réseaux je suis en 1er CIEL au lycée La Chartreuse. Ce que je fais de mon temps libre : créer des jeux vidéo, faire de la musique et bien d'autres choses encore.</p>
-    </div>
-  </section>
-
-  <!-- Filière CIEL -->
-  <section id="ciel-section">
-    <h1>Filière CIEL</h1>
-    <div class="presentation-box">
-      <p>Je suis en 1er CIEL au lycée La Chartreuse, une filière qui m'apprend la cybersécurité, l’informatique et l’électronique tout en développant ma créativité et mes compétences en projets concrets.</p>
-    </div>
-  </section>
-
-  <!-- Section Spécial CIEL -->
-  <section id="special-ciel">
-    <h1>Spécial CIEL</h1>
-    <div class="presentation-box">
-      <p>La filière CIEL (Cybersécurité, Informatique, Électronique) au lycée La Chartreuse est conçue pour développer nos compétences en cybersécurité, programmation, électronique, gestion de projets et créativité. Les élèves apprennent à travailler en équipe sur des projets concrets, à coder, créer des jeux vidéo, faire de la musique et développer des solutions innovantes. Cette filière prépare à la fois à l’enseignement supérieur et à des projets créatifs personnels.</p>
+      <p>
+        Bonjour je suis Léo MANUEL alias N1K0 sur les réseaux. Je suis en 1er CIEL au lycée La Chartreuse. La filière CIEL (Cybersécurité, Informatique, Électronique) m'apprend la cybersécurité, l’informatique et l’électronique tout en développant ma créativité et mes compétences en projets concrets.  
+        Les élèves apprennent à travailler en équipe sur des projets concrets, à coder, créer des jeux vidéo, faire de la musique et développer des solutions innovantes. Cette filière prépare à la fois à l’enseignement supérieur et à des projets créatifs personnels.
+      </p>
     </div>
   </section>
 
@@ -181,8 +172,6 @@
 <script>
   const pages = {
     "page-presentation": document.getElementById('page-presentation'),
-    "ciel-section": document.getElementById('ciel-section'),
-    "special-ciel": document.getElementById('special-ciel'),
     "page-flstudio": document.getElementById('page-flstudio'),
     "page-oneshot": document.getElementById('page-oneshot'),
     "page-youtube": document.getElementById('page-youtube'),
@@ -201,26 +190,25 @@
   window.addEventListener('hashchange', showPage);
   showPage();
 
-  // Menu CIEL
+  // Menu CIEL animé
   const cielIcon = document.getElementById('ciel-icon');
   const cielMenu = document.getElementById('ciel-menu');
-  cielIcon.addEventListener('click', ()=>{ cielMenu.style.display = cielMenu.style.display==='block'?'none':'block'; });
-  window.addEventListener('click',(e)=>{ if(!cielIcon.contains(e.target)&&!cielMenu.contains(e.target)) cielMenu.style.display='none'; });
+
+  cielIcon.addEventListener('click', ()=>{
+    cielMenu.classList.toggle('show');
+  });
+
+  window.addEventListener('click', (e)=>{
+    if(!cielIcon.contains(e.target) && !cielMenu.contains(e.target)){
+      cielMenu.classList.remove('show');
+    }
+  });
 
   // Traduction FR/EN
   const translations = {
-    "Présentation":"Presentation","Bonjour je suis Léo MANUEL alias N1K0 sur les réseaux je suis en 1er CIEL au lycée La Chartreuse. Ce que je fais de mon temps libre : créer des jeux vidéo, faire de la musique et bien d'autres choses encore.":"Hello, I am Léo MANUEL aka N1K0 on social networks. I am in 1st CIEL at Lycée La Chartreuse. In my free time, I create video games, make music, and many other things.",
-    "Filière CIEL":"CIEL Program","Je suis en 1er CIEL au lycée La Chartreuse, une filière qui m'apprend la cybersécurité, l’informatique et l’électronique tout en développant ma créativité et mes compétences en projets concrets.":"I am in 1st CIEL at Lycée La Chartreuse, a program that teaches me cybersecurity, computer science and electronics while developing my creativity and skills on real projects.",
-    "Spécial CIEL":"Special CIEL","La filière CIEL (Cybersécurité, Informatique, Électronique) au lycée La Chartreuse est conçue pour développer nos compétences en cybersécurité, programmation, électronique, gestion de projets et créativité. Les élèves apprennent à travailler en équipe sur des projets concrets, à coder, créer des jeux vidéo, faire de la musique et développer des solutions innovantes. Cette filière prépare à la fois à l’enseignement supérieur et à des projets créatifs personnels.":"The CIEL program (Cybersecurity, Computer Science, Electronics) at Lycée La Chartreuse is designed to develop our skills in cybersecurity, programming, electronics, project management, and creativity. Students learn to work in teams on real projects, code, create video games, make music, and develop innovative solutions. This program prepares students both for higher education and for personal creative projects.",
-    "FL Studio":"FL Studio","Mes créations musicales":"My Musical Creations","Je compose des beats, thèmes atmosphériques et musiques inspirées des jeux vidéo. J'utilise surtout Harmor, Sytrus, Flex et divers plugins externes.":"I compose beats, atmospheric themes and video game inspired music. I mainly use Harmor, Sytrus, Flex and various external plugins.",
-    "Techniques et workflow":"Techniques and Workflow","Automation, mixage, layering, sound design… Je détaille comment je construis mes projets et comment j'améliore mes productions au fil du temps.":"Automation, mixing, layering, sound design… I explain how I build my projects and how I improve my productions over time.",
-    "Projets en cours":"Ongoing Projects","Albums concept, OST originales, remixes — tous les projets sur lesquels je travaille seront listés ici.":"Concept albums, original OSTs, remixes — all projects I’m working on will be listed here.",
-    "Pourquoi j'aime ce jeu":"Why I love this game","OneShot est une expérience unique, immersive et profondément narrative. Le lien avec Niko, l'atmosphère et la manière dont le jeu interagit avec le joueur en font une œuvre incomparable.":"OneShot is a unique, immersive and deeply narrative experience. The connection with Niko, the atmosphere and the way the game interacts with the player make it an incomparable work.",
-    "Analyse de l'univers":"Universe Analysis","J'explore les thèmes principaux du jeu, les personnages, les secrets, et les multiples lectures possibles de son scénario métaphorique.":"I explore the main themes of the game, the characters, secrets, and the multiple possible interpretations of its metaphorical story.",
-    "Contenu spécial":"Special Content","Fanarts, théories, guides, musiques inspirées d’OneShot… cette section regroupe tout ce que je crée autour du jeu.":"Fanarts, theories, guides, OneShot inspired music… this section gathers everything I create around the game.",
-    "Chaîne YouTube — N1K0":"YouTube Channel — N1K0","Vidéos publiées":"Published Videos","Tutoriels FL Studio, analyses de jeux, OST originales, projets créatifs… Tout mon contenu est regroupé ici.":"FL Studio tutorials, game analyses, original OSTs, creative projects… All my content is gathered here.","Ce que je prévois":"Upcoming","Plus de vidéos, making-of musicaux, projets interactifs et éventuelles mini-séries.":"More videos, musical making-ofs, interactive projects, and possible mini-series.",
-    "À propos de N1K0":"About N1K0","Je suis un créateur passionné par la musique, les jeux indépendants et le montage vidéo. Mon objectif : construire un univers créatif qui rassemble mes inspirations et mes projets.":"I am a creator passionate about music, indie games, and video editing. My goal: build a creative universe that brings together my inspirations and projects.",
-    "Contact":"Contact","Contactez-moi ici":"Contact me here"
+    "Présentation":"Presentation",
+    "Présentation CIEL":"CIEL Presentation",
+    "Bonjour je suis Léo MANUEL alias N1K0 sur les réseaux. Je suis en 1er CIEL au lycée La Chartreuse. La filière CIEL (Cybersécurité, Informatique, Électronique) m'apprend la cybersécurité, l’informatique et l’électronique tout en développant ma créativité et mes compétences en projets concrets. Les élèves apprennent à travailler en équipe sur des projets concrets, à coder, créer des jeux vidéo, faire de la musique et développer des solutions innovantes. Cette filière prépare à la fois à l’enseignement supérieur et à des projets créatifs personnels.":"Hello, I am Léo MANUEL aka N1K0 on social networks. I am in 1st CIEL at Lycée La Chartreuse. The CIEL program (Cybersecurity, Computer Science, Electronics) teaches me cybersecurity, computer science and electronics while developing my creativity and practical project skills. Students learn to work in teams on real projects, code, create video games, make music, and develop innovative solutions. This program prepares students both for higher education and personal creative projects."
   };
 
   let lang="fr";
@@ -235,13 +223,8 @@
       });
     });
 
-    // Traduction menu CIEL
     const cielLinks = document.querySelectorAll('.ciel-link');
-    const cielTranslations = {
-      "Présentation CIEL":"CIEL Presentation",
-      "Filière CIEL":"CIEL Program",
-      "Spécial CIEL":"Special CIEL"
-    };
+    const cielTranslations = { "Présentation CIEL":"CIEL Presentation" };
     cielLinks.forEach(link=>{
       if(lang==='en' && cielTranslations[link.textContent]) link.textContent = cielTranslations[link.textContent];
       else if(lang==='fr'){ for(const fr in cielTranslations){ if(cielTranslations[fr]===link.textContent) link.textContent=fr; } }
