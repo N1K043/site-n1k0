@@ -9,16 +9,9 @@
     body{
       margin:0;
       font-family:Inter, sans-serif;
-      background: linear-gradient(135deg, #3a0ca3, #7209b7, #f72585);
+      background: #7209b7; /* fond violet statique */
       color:#f1f1f1;
-      animation: neon-bg 15s ease infinite;
     }
-    @keyframes neon-bg{
-      0%{background-position:0% 50%;}
-      50%{background-position:100% 50%;}
-      100%{background-position:0% 50%;}
-    }
-    body{background-size: 600% 600%;}
     a{color:inherit; text-decoration:none}
     header{position:sticky; top:0; background:rgba(24,24,24,0.85); padding:12px 0; border-bottom:1px solid #333; z-index:5; backdrop-filter: blur(6px);}
     .container{width:min(1200px,92%); margin:auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;}
@@ -44,17 +37,12 @@
       transform: translateY(-5px);
       box-shadow: 0 0 25px rgba(255, 211, 70, 0.8), 0 0 50px rgba(255, 211, 70, 0.3);
     }
-    .presentation-box p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #f1f1f1;
-    }
+    .presentation-box p { font-size: 1rem; line-height: 1.6; color: #f1f1f1; }
     .link-button{display:block; margin-top:16px; text-align:center; color:#ffd346; font-weight:bold;}
     #lang-toggle{padding:6px 12px; border-radius:6px; background:#333; color:#ffd346; border:none; cursor:pointer;}
     .logo { height: 42px; width: auto; margin-right: 20px; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .logo:hover { transform: scale(1.1); box-shadow: 0 0 15px #f72585, 0 0 25px #3a0ca3; }
 
-    /* --- MEDIA QUERIES --- */
     @media (max-width: 768px) {
       .container { flex-direction: column; align-items: flex-start; }
       nav ul { flex-direction: column; width: 100%; margin-top: 10px; gap: 12px; }
@@ -67,7 +55,6 @@
       nav ul { flex-wrap: wrap; gap: 16px; }
     }
 
-    /* ANIMATION MENU */
     nav a { animation: menu-fade 1s ease forwards; opacity:0; }
     nav a:nth-child(1){ animation-delay:0.2s; }
     nav a:nth-child(2){ animation-delay:0.4s; }
@@ -104,7 +91,7 @@
   <section id="page-presentation">
     <h1>Présentation</h1>
     <div class="presentation-box">
-      <p>Bonjour, je suis N1K0, créateur passionné par la musique, les jeux vidéo et le contenu créatif en général. Sur ce site, vous découvrirez mes projets, mes analyses et mes créations musicales.</p>
+      <p>Bonjour je suis Léo MANUEL alias N1K0 sur les réseaux je suis en 1er CIEL au lycée La Chartreuse. Ce que je fais de mon temps libre : créer des jeux vidéo, faire de la musique et bien d'autres choses encore.</p>
     </div>
   </section>
 
@@ -191,10 +178,9 @@
   window.addEventListener('hashchange', showPage);
   showPage();
 
-  // TRADUCTION FR/EN
   const translations = {
     "Présentation":"Presentation",
-    "Bonjour, je suis N1K0, créateur passionné par la musique, les jeux vidéo et le contenu créatif en général. Sur ce site, vous découvrirez mes projets, mes analyses et mes créations musicales.":"Hello, I am N1K0, a creator passionate about music, video games and creative content. On this site, you will discover my projects, analyses and musical creations.",
+    "Bonjour je suis Léo MANUEL alias N1K0 sur les réseaux je suis en 1er CIEL au lycée La Chartreuse. Ce que je fais de mon temps libre : créer des jeux vidéo, faire de la musique et bien d'autres choses encore.":"Hello, I am Léo MANUEL aka N1K0 on social networks. I am in 1st CIEL at Lycée La Chartreuse. In my free time, I create video games, make music, and many other things.",
     "FL Studio":"FL Studio",
     "Mes créations musicales":"My Musical Creations",
     "Je compose des beats, thèmes atmosphériques et musiques inspirées des jeux vidéo. J'utilise surtout Harmor, Sytrus, Flex et divers plugins externes.":"I compose beats, atmospheric themes and video game inspired music. I mainly use Harmor, Sytrus, Flex and various external plugins.",
