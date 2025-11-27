@@ -20,15 +20,54 @@
     .card{background:#1e1e1e; border:1px solid #333; padding:20px; border-radius:12px; margin:16px 0;}
     .link-button{display:block; margin-top:16px; text-align:center; color:#ffd346; font-weight:bold;}
     #lang-toggle{padding:6px 12px; border-radius:6px; background:#333; color:#ffd346; border:none; cursor:pointer;}
-    .logo { height: 42px; width: auto; margin-right: 20px; border-radius: 8px; }
+    .logo { height: 42px; width: auto; margin-right: 20px; border-radius: 8px; transition: transform 0.2s ease; }
+    .logo:hover { transform: scale(1.08); }
+
+    /* --- MEDIA QUERIES POUR MOBILE --- */
+    @media (max-width: 768px) {
+      .container { 
+        flex-direction: column; 
+        align-items: flex-start; 
+      }
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        gap: 12px;
+      }
+      nav a {
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+      }
+      .logo { 
+        height: 36px; 
+        margin-bottom: 8px;
+      }
+      #lang-toggle { 
+        margin-top: 10px; 
+        width: 100%;
+      }
+    }
+
+    /* --- MEDIA QUERIES POUR TABLETTE --- */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+    }
   </style>
 </head>
 <body>
 
 <header>
   <div class="container">
-
-    <!-- ⭐ LOGO CLIQUABLE VERS SPOTIFY -->
+    <!-- LOGO CLIQUABLE VERS SPOTIFY -->
     <a href="https://open.spotify.com/artist/65hR6w5HS48H2xRYSbs4qY?si=hAnkgjxER9KFtJO89fLA0w" target="_blank">
       <img src="https://raw.githubusercontent.com/N1K043/pp/main/pp.jpg" alt="Logo N1K0" class="logo">
     </a>
@@ -43,7 +82,6 @@
     </nav>
 
     <button id="lang-toggle">English</button>
-
   </div>
 </header>
 
@@ -132,9 +170,7 @@
   window.addEventListener('hashchange', showPage);
   showPage();
 
-  // -----------------------------
-  // SYSTÈME DE TRADUCTION FR/EN
-  // -----------------------------
+  // TRADUCTION FR/EN
   const translations = {
     "FL Studio":"FL Studio",
     "Mes créations musicales":"My Musical Creations",
