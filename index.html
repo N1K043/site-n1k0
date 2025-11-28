@@ -4,76 +4,70 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>N1K0 — FL Studio • OneShot • YouTube</title>
+
 <style>
-/* --- TON CSS ORIGINAL (inchangé) --- */
 *,*::before,*::after{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:Inter, sans-serif;
-  background:#7209b7;
-  color:#f1f1f1;
-}
+body{margin:0;font-family:Inter,sans-serif;background:#7209b7;color:#f1f1f1;}
 a{color:inherit;text-decoration:none}
-header{position:sticky;top:0;background:rgba(24,24,24,0.85);padding:12px 0;border-bottom:1px solid #333;z-index:5;backdrop-filter: blur(6px);}
+header{position:sticky;top:0;background:rgba(24,24,24,0.85);padding:12px 0;border-bottom:1px solid #333;z-index:5;backdrop-filter:blur(6px);}
 .container{width:min(1200px,92%);margin:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;}
-nav ul{display:flex;gap:24px;list-style:none;padding:0;margin:0;transition:transform 0.3s ease;}
-nav a{padding:6px 10px;border-radius:6px;transition:transform 0.2s ease, box-shadow 0.2s ease;}
-nav a.active, nav a:hover{background:#333;box-shadow:0 0 10px #ffd346,0 0 20px #f72585;}
+nav ul{display:flex;gap:24px;list-style:none;padding:0;margin:0;}
+nav a{padding:6px 10px;border-radius:6px;transition:0.2s;}
+nav a.active,nav a:hover{background:#333;box-shadow:0 0 10px #ffd346,0 0 20px #f72585;}
 section{display:none;padding:60px 0;animation:fade .3s ease;}
 section.active{display:block;}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 h1,h2{color:#ffd346;}
-.card{background:rgba(30,30,30,0.85);border:1px solid #333;padding:20px;border-radius:12px;margin:16px 0;backdrop-filter:blur(4px);transition:transform 0.3s ease, opacity 0.3s ease;}
-.presentation-box{border:2px solid #ffd346;padding:20px;border-radius:12px;background:linear-gradient(145deg,rgba(26,26,26,0.85),rgba(17,17,17,0.85));box-shadow:0 0 15px rgba(255,211,70,0.5),0 0 30px rgba(255,211,70,0.2);backdrop-filter:blur(4px);margin-top:16px;transition:transform 0.3s ease,box-shadow 0.3s ease,opacity 0.3s ease;}
-.presentation-box:hover{transform:translateY(-5px);box-shadow:0 0 25px rgba(255,211,70,0.8),0 0 50px rgba(255,211,70,0.3);}
-.presentation-box p{font-size:1rem;line-height:1.6;color:#f1f1f1;}
+.card{background:rgba(30,30,30,0.85);border:1px solid #333;padding:20px;border-radius:12px;margin:16px 0;backdrop-filter:blur(4px);}
+.presentation-box{border:2px solid #ffd346;padding:20px;border-radius:12px;background:linear-gradient(145deg,rgba(26,26,26,0.85),rgba(17,17,17,0.85));box-shadow:0 0 15px rgba(255,211,70,0.5);}
+.presentation-box p{font-size:1rem;line-height:1.6;}
 .link-button{display:block;margin-top:16px;text-align:center;color:#ffd346;font-weight:bold;}
 #lang-toggle{padding:6px 12px;border-radius:6px;background:#333;color:#ffd346;border:none;cursor:pointer;}
-.logo{height:42px;width:auto;margin-right:20px;border-radius:8px;transition:transform 0.3s ease, box-shadow 0.3s ease;}
-.logo:hover{transform:scale(1.1);box-shadow:0 0 15px #f72585,0 0 25px #3a0ca3;}
-.ciel-icon{height:36px;border-radius:8px;cursor:pointer;transition:transform 0.3s ease,box-shadow 0.3s ease;}
-.ciel-icon:hover{transform:scale(1.1);box-shadow:0 0 15px #ffd346,0 0 30px #f72585;}
-#ciel-menu{display:none;position:absolute;top:42px;left:0;background:rgba(30,30,30,0.95);list-style:none;padding:10px;border-radius:8px;border:1px solid #ffd346;min-width:180px;z-index:10;opacity:0;}
-#ciel-menu.show{display:block;animation:slideFadeIn 0.3s ease forwards;}
+.logo{height:42px;border-radius:8px;transition:.3s;}
+.logo:hover{transform:scale(1.1);box-shadow:0 0 15px #f72585;}
+.ciel-icon{height:36px;border-radius:8px;cursor:pointer;transition:.3s;}
+.ciel-icon:hover{transform:scale(1.1);box-shadow:0 0 15px #ffd346;}
+#ciel-menu{display:none;position:absolute;top:42px;left:0;background:rgba(30,30,30,0.95);list-style:none;padding:10px;border-radius:8px;border:1px solid #ffd346;min-width:180px;}
+#ciel-menu.show{display:block;}
 #ciel-menu li{margin:8px 0;}
-#ciel-menu li a{color:#ffd346;text-decoration:none;display:block;padding:4px 8px;border-radius:4px;transition:background 0.2s ease;}
-#ciel-menu li a:hover{background:rgba(255,213,70,0.2);}
-@keyframes slideFadeIn{0%{opacity:0;transform:translateY(-10px);}100%{opacity:1;transform:translateY(0);}}
+#ciel-menu a{color:#ffd346;display:block;padding:4px 8px;border-radius:4px;}
+#ciel-menu a:hover{background:rgba(255,213,70,0.15);}
 </style>
 </head>
 
 <body>
 
-<!-- 🧭 HEADER -->
 <header>
-  <div class="container">
-    <a href="https://open.spotify.com/artist/65hR6w5HS48H2xRYSbs4qY">
-      <img src="https://raw.githubusercontent.com/N1K043/pp/main/pp.jpg" class="logo">
-    </a>
+<div class="container">
 
-    <nav>
-      <ul>
-        <li><a href="#page-presentation" id="link-presentation">Présentation</a></li>
-        <li><a href="#page-flstudio" id="link-flstudio">FL Studio</a></li>
-        <li><a href="#page-oneshot" id="link-oneshot">OneShot</a></li>
-        <li><a href="#page-youtube" id="link-youtube">YouTube</a></li>
-        <li><a href="#page-n1k0" id="link-n1k0">À propos</a></li>
-      </ul>
-    </nav>
+<a href="https://open.spotify.com/artist/65hR6w5HS48H2xRYSbs4qY" target="_blank">
+<img src="https://raw.githubusercontent.com/N1K043/pp/main/pp.jpg" class="logo">
+</a>
 
-    <div style="position:relative;display:flex;align-items:center;gap:8px;">
-      <button id="lang-toggle">English</button>
-      <img src="https://raw.githubusercontent.com/N1K043/pp/main/nikooo.jpg" class="ciel-icon" id="ciel-icon">
-      <ul id="ciel-menu">
-        <li><a class="ciel-link">Présentation CIEL</a></li>
-      </ul>
-    </div>
-  </div>
+<nav>
+<ul>
+<li><a href="#page-presentation" id="link-presentation">Présentation</a></li>
+<li><a href="#page-flstudio" id="link-flstudio">FL Studio</a></li>
+<li><a href="#page-oneshot" id="link-oneshot">OneShot</a></li>
+<li><a href="#page-youtube" id="link-youtube">YouTube</a></li>
+<li><a href="#page-n1k0" id="link-n1k0">À propos</a></li>
+</ul>
+</nav>
+
+<div style="position:relative;display:flex;align-items:center;gap:8px;">
+<button id="lang-toggle">English</button>
+<img src="https://raw.githubusercontent.com/N1K043/pp/main/nikooo.jpg" class="ciel-icon" id="ciel-icon">
+<ul id="ciel-menu">
+<li><a class="ciel-link">Présentation CIEL</a></li>
+</ul>
+</div>
+
+</div>
 </header>
 
-<!-- 🟣 SECTIONS (inchangées) -->
 <main class="container">
 
+<!-- PRESENTATION -->
 <section id="page-presentation" class="active">
 <h1>Présentation CIEL</h1>
 <div class="presentation-box">
@@ -83,65 +77,178 @@ Bonjour je suis Léo MANUEL alias N1K0 sur les réseaux. Je suis en 1er CIEL au 
 </div>
 </section>
 
-<!-- 🔄 Les autres sections restent EXACTEMENT comme avant -->
-<!-- (je n'affiche pas ici pour ne pas dépasser la limite) -->
+<!-- FL STUDIO -->
+<section id="page-flstudio">
+<h1>FL Studio</h1>
+
+<div class="card">
+<h2>Mes créations musicales</h2>
+<p>Je compose des beats, thèmes atmosphériques et musiques inspirées des jeux vidéo. J'utilise surtout Harmor, Sytrus, Flex et divers plugins externes.</p>
+</div>
+
+<div class="card">
+<h2>Techniques et workflow</h2>
+<p>Automation, mixage, layering, sound design… Je détaille comment je construis mes projets et comment j'améliore mes productions au fil du temps.</p>
+</div>
+
+<div class="card">
+<h2>Projets en cours</h2>
+<p>Albums concept, OST originales, remixes — tous les projets sur lesquels je travaille seront listés ici.</p>
+</div>
+
+</section>
+
+<!-- ONESHOT -->
+<section id="page-oneshot">
+<h1>OneShot</h1>
+
+<div class="card">
+<h2>Pourquoi j'aime ce jeu</h2>
+<p>OneShot est une expérience unique, immersive et profondément narrative. Le lien avec Niko, l'atmosphère et la manière dont le jeu interagit avec le joueur en font une œuvre incomparable.</p>
+</div>
+
+<div class="card">
+<h2>Analyse de l'univers</h2>
+<p>J'explore les thèmes principaux du jeu, les personnages, les secrets, et les multiples lectures possibles de son scénario métaphorique.</p>
+</div>
+
+<div class="card">
+<h2>Contenu spécial</h2>
+<p>Fanarts, théories, guides, musiques inspirées d’OneShot… cette section regroupe tout ce que je crée autour du jeu.</p>
+</div>
+
+</section>
+
+<!-- YOUTUBE -->
+<section id="page-youtube">
+<h1>Chaîne YouTube — N1K0</h1>
+
+<div class="card">
+<h2>Vidéos publiées</h2>
+<p>Tutoriels FL Studio, analyses de jeux, OST originales, projets créatifs… Tout mon contenu est regroupé ici.</p>
+<a class="link-button" href="https://youtu.be/T6TzoK7Szsw" target="_blank">Regarde la vidéo sur YouTube</a>
+</div>
+
+<div class="card">
+<h2>Ce que je prévois</h2>
+<p>Plus de vidéos, making-of musicaux, projets interactifs et éventuelles mini-séries.</p>
+</div>
+
+</section>
+
+<!-- A PROPOS -->
+<section id="page-n1k0">
+<h1>À propos de N1K0</h1>
+
+<div class="card">
+<h2>Contact</h2>
+<a class="link-button" href="https://linktr.ee/N1K0_43" target="_blank">Contactez-moi ici</a>
+</div>
+
+</section>
 
 </main>
 
 <script>
-/* 🧭 Gestion des pages */
+// Pages
 const pages={
-  "page-presentation":document.getElementById("page-presentation"),
-  "page-flstudio":document.getElementById("page-flstudio"),
-  "page-oneshot":document.getElementById("page-oneshot"),
-  "page-youtube":document.getElementById("page-youtube"),
-  "page-n1k0":document.getElementById("page-n1k0"),
+"page-presentation":document.getElementById("page-presentation"),
+"page-flstudio":document.getElementById("page-flstudio"),
+"page-oneshot":document.getElementById("page-oneshot"),
+"page-youtube":document.getElementById("page-youtube"),
+"page-n1k0":document.getElementById("page-n1k0"),
 };
 
 function showPage(){
-  const hash=location.hash.replace("#","")||"page-presentation";
-  Object.values(pages).forEach(s=>s.classList.remove("active"));
-  if(pages[hash]) pages[hash].classList.add("active");
+const hash=location.hash.replace("#","")||"page-presentation";
+Object.values(pages).forEach(s=>s.classList.remove("active"));
+pages[hash].classList.add("active");
 }
 window.addEventListener("hashchange",showPage);
 showPage();
 
-/* 🌙 Menu CIEL */
-const cielIcon=document.getElementById("ciel-icon");
-const cielMenu=document.getElementById("ciel-menu");
-cielIcon.addEventListener("click",()=>cielMenu.classList.toggle("show"));
-window.addEventListener("click",e=>{
-  if(!cielMenu.contains(e.target)&&!cielIcon.contains(e.target)) cielMenu.classList.remove("show");
-});
+// Menu CIEL
+document.getElementById("ciel-icon").onclick=()=>{
+document.getElementById("ciel-menu").classList.toggle("show");
+};
+window.onclick=e=>{
+if(!document.getElementById("ciel-menu").contains(e.target)&&!document.getElementById("ciel-icon").contains(e.target)){
+document.getElementById("ciel-menu").classList.remove("show");
+}
+};
 
-/* 🌍 TRADUCTIONS STABLES */
+// TRADUCTION
 const translations={
-  "Présentation":"Presentation",
-  "À propos":"About",
-  "Présentation CIEL":"CIEL Presentation",
 
-  "Bonjour je suis Léo MANUEL alias N1K0 sur les réseaux. Je suis en 1er CIEL au lycée La Chartreuse. La filière CIEL (Cybersécurité, Informatique, Électronique) m'apprend la cybersécurité, l’informatique et l’électronique tout en développant ma créativité et mes compétences en projets concrets. Les élèves apprennent à travailler en équipe sur des projets concrets, à coder, créer des jeux vidéo, faire de la musique et développer des solutions innovantes. Cette filière prépare à la fois à l’enseignement supérieur et à des projets créatifs personnels.":
-  "Hello, I am Léo MANUEL, aka N1K0 on social networks. I am in 1st CIEL at La Chartreuse high school. The CIEL program teaches cybersecurity, computer science, and electronics while developing creativity and real-world project skills. Students learn team-work, coding, game creation, music production and innovative solutions. This program prepares both for higher education and creative personal projects."
+"Présentation":"Presentation",
+"FL Studio":"FL Studio",
+"OneShot":"OneShot",
+"YouTube":"YouTube",
+"À propos":"About",
+"Présentation CIEL":"CIEL Presentation",
+
+"Mes créations musicales":"My musical creations",
+"Techniques et workflow":"Techniques and workflow",
+"Projets en cours":"Current projects",
+"Pourquoi j'aime ce jeu":"Why I love this game",
+"Analyse de l'univers":"World analysis",
+"Contenu spécial":"Special content",
+"Chaîne YouTube — N1K0":"YouTube channel — N1K0",
+"Vidéos publiées":"Published videos",
+"Ce que je prévois":"What I plan",
+"À propos de N1K0":"About N1K0",
+"Contact":"Contact",
+"Contactez-moi ici":"Contact me here",
+"Regarde la vidéo sur YouTube":"Watch the video on YouTube",
+
+"Bonjour je suis Léo MANUEL alias N1K0 sur les réseaux. Je suis en 1er CIEL au lycée La Chartreuse. La filière CIEL (Cybersécurité, Informatique, Électronique) m'apprend la cybersécurité, l’informatique et l’électronique tout en développant ma créativité et mes compétences en projets concrets. Les élèves apprennent à travailler en équipe sur des projets concrets, à coder, créer des jeux vidéo, faire de la musique et développer des solutions innovantes. Cette filière prépare à la fois à l’enseignement supérieur et à des projets créatifs personnels.":
+"Hello, I am Léo MANUEL, aka N1K0 on social networks. I am in 1st CIEL at La Chartreuse high school. The CIEL program teaches cybersecurity, computer science and electronics while developing creativity and real-world project skills. Students learn teamwork, coding, game design, music creation and innovative solutions. It prepares for higher studies and personal creative projects.",
+
+"Je compose des beats, thèmes atmosphériques et musiques inspirées des jeux vidéo. J'utilise surtout Harmor, Sytrus, Flex et divers plugins externes.":
+"I compose beats, atmospheric themes and music inspired by video games. I mainly use Harmor, Sytrus, Flex and various external plugins.",
+
+"Automation, mixage, layering, sound design… Je détaille comment je construis mes projets et comment j'améliore mes productions au fil du temps.":
+"Automation, mixing, layering, sound design… I explain how I build my projects and improve my productions over time.",
+
+"Albums concept, OST originales, remixes — tous les projets sur lesquels je travaille seront listés ici.":
+"Concept albums, original OSTs, remixes — all the projects I'm working on will be listed here.",
+
+"OneShot est une expérience unique, immersive et profondément narrative. Le lien avec Niko, l'atmosphère et la manière dont le jeu interagit avec le joueur en font une œuvre incomparable.":
+"OneShot is a unique, immersive and deeply narrative experience. The bond with Niko, the atmosphere and the interaction with the player make it incomparable.",
+
+"J'explore les thèmes principaux du jeu, les personnages, les secrets, et les multiples lectures possibles de son scénario métaphorique.":
+"I explore the game's main themes, characters, secrets and multiple interpretations of its metaphorical story.",
+
+"Fanarts, théories, guides, musiques inspirées d’OneShot… cette section regroupe tout ce que je crée autour du jeu.":
+"Fanarts, theories, guides, music inspired by OneShot… this section gathers everything I create around the game.",
+
+"Tutoriels FL Studio, analyses de jeux, OST originales, projets créatifs… Tout mon contenu est regroupé ici.":
+"FL Studio tutorials, game analysis, original OSTs, creative projects… All my content is gathered here.",
+
+"Plus de vidéos, making-of musicaux, projets interactifs et éventuelles mini-séries.":
+"More videos, musical making-ofs, interactive projects and possible mini-series."
 };
 
 let lang="fr";
 
 document.getElementById("lang-toggle").addEventListener("click",()=>{
 
-  lang=lang==="fr"?"en":"fr";
-  document.getElementById("lang-toggle").textContent=lang==="fr"?"English":"Français";
+lang=lang==="fr"?"en":"fr";
+document.getElementById("lang-toggle").textContent=lang==="fr"?"English":"Français";
 
-  document.querySelectorAll("section *").forEach(el=>{
-    if(el.children.length>0) return;
-    const txt=el.textContent.trim();
-    if(lang==="en"&&translations[txt]) el.textContent=translations[txt];
-    if(lang==="fr"){
-      for(const fr in translations){
-        if(translations[fr]===txt) el.textContent=fr;
-      }
-    }
-  });
+document.querySelectorAll("section *").forEach(el=>{
+if(el.children.length>0) return;
 
+const txt=el.textContent.trim();
+
+if(lang==="en"&&translations[txt]) el.textContent=translations[txt];
+else if(lang==="fr"){
+for(const fr in translations){
+if(translations[fr]===txt) el.textContent=fr;
+}
+}
+
+});
 });
 </script>
 
