@@ -175,29 +175,6 @@ footer p{color:var(--muted);font-size:.82rem}
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-
-/* Zoom images */
-.image-modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  z-index:9999;
-  justify-content:center;
-  align-items:center;
-  cursor:pointer;
-}
-.image-modal img{
-  max-width:90vw;
-  max-height:90vh;
-  object-fit:contain;
-  border-radius:12px;
-}
-.gal-item img,
-.hero-card-img{
-  cursor:pointer;
-}
-
 </style>
 </head>
 <body>
@@ -305,14 +282,14 @@ footer p{color:var(--muted);font-size:.82rem}
        RÉPERTOIRE FL STUDIO
        Dossier : site image/ (à côté de main.html dans Downloads)
        Remplace nom-du-fichier.jpg par le vrai nom de chaque image
-       Exemple : <img src="site image/screenshot1.jpg" alt="">
+       Exemple : <img src="./site%20image/screenshot1.jpg" alt="">
        ================================================ -->
   <div class="gallery">
-    <div class="gal-item"><img src="site image/prod.jpg" alt=""></div>
-    <div class="gal-item"><img src="site image/bras.jpg" alt=""></div>
-    <div class="gal-item"><img src="site image/temps.jpg" alt=""></div>
-    <div class="gal-item"><img src="site image/kill my self.jpg" alt=""></div>
-    <div class="gal-item"><img src="site image/spotify.jpg" alt=""></div>
+    <div class="gal-item"><img src="./site%20image/prod.jpg" alt=""></div>
+    <div class="gal-item"><img src="./site%20image/bras.jpg" alt=""></div>
+    <div class="gal-item"><img src="./site%20image/temps.jpg" alt=""></div>
+    <div class="gal-item"><img src="./site%20image/kill my self.jpg" alt=""></div>
+    <div class="gal-item"><img src="./site%20image/spotify.jpg" alt=""></div>
   </div>
 
   <div class="section-label" data-fr="Sur Spotify" data-en="On Spotify">Sur Spotify</div>
@@ -352,8 +329,8 @@ footer p{color:var(--muted);font-size:.82rem}
   </div>
 
   <!-- Vidéo OneShot : trailer officiel du jeu -->
-  <div class="section-label" data-fr="Bonne vidéo" data-en="Nice vidéo">Nice Vidéo</div>
-  <a class="yt-card" href="https://youtu.be/_cSjXu-PJqA?si=DcZ_uCwfKa6Xu4ij" target="_blank" rel="noopener">
+  <div class="section-label" data-fr="Trailer officiel" data-en="Official trailer">Trailer officiel</div>
+  <a class="yt-card" href="https://www.youtube.com/watch?v=N8pD7bUDjlw" target="_blank" rel="noopener">
     <img class="yt-thumb" src="https://i.ytimg.com/vi/N8pD7bUDjlw/maxresdefault.jpg" alt="OneShot trailer"
          onerror="this.src='https://i.ytimg.com/vi/N8pD7bUDjlw/hqdefault.jpg'">
     <div class="yt-play-btn">
@@ -412,11 +389,11 @@ footer p{color:var(--muted);font-size:.82rem}
        RÉPERTOIRE YOUTUBE
        Dossier : site image/ (à côté de main.html dans Downloads)
        Remplace nom-du-fichier.jpg par le vrai nom de chaque image
-       Exemple : <img src="site image/miniature1.jpg" alt="">
+       Exemple : <img src="./site%20image/miniature1.jpg" alt="">
        ================================================ -->
   <div class="gallery">
-    <div class="gal-item"><img src="site image/vue.jpg.png" alt=""></div>
-    <div class="gal-item"><img src="site image/genshin.jpg" alt=""></div>
+    <div class="gal-item"><img src="./site%20image/vue.jpg.png" alt=""></div>
+    <div class="gal-item"><img src="./site%20image/genshin.jpg" alt=""></div>
   </div>
 
   <div class="btn-row">
@@ -518,26 +495,5 @@ document.getElementById("lang-btn").addEventListener("click",()=>{
   applyLang();
 });
 </script>
-
-<div class="image-modal" id="imageModal">
-  <img id="modalImg" src="" alt="">
-</div>
-
-<script>
-const modal = document.getElementById("imageModal");
-const modalImg = document.getElementById("modalImg");
-
-document.querySelectorAll(".gal-item img, .hero-card-img").forEach(img => {
-  img.addEventListener("click", () => {
-    modal.style.display = "flex";
-    modalImg.src = img.src;
-  });
-});
-
-modal.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-</script>
-
 </body>
 </html>
