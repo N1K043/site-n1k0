@@ -175,6 +175,26 @@ footer p{color:var(--muted);font-size:.82rem}
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* Zoom images */
+.image-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+.image-modal img{
+  max-width:90vw;
+  max-height:90vh;
+  object-fit:contain;
+  border-radius:12px;
+}
+.gal-item img,.hero-card-img{cursor:pointer}
+
 </style>
 </head>
 <body>
@@ -406,7 +426,7 @@ footer p{color:var(--muted);font-size:.82rem}
 <!-- À PROPOS -->
 <section id="page-n1k0">
   <p class="page-subtitle" data-fr="Liens & contact" data-en="Links & contact">Liens & contact</p>
-  <h1 class="page-title" data-fr="À propos" data-en="About"><span data-fr="À" data-en="About">À</span> <span data-fr="propos" data-en=""></span></h1>
+  <h1 class="page-title"><span data-fr="À propos" data-en="About">À propos</span></h1>
   <div class="about-grid">
     <div>
       <p style="color:#b0b0c8;font-size:1.05rem;line-height:1.8;font-weight:300"
@@ -495,5 +515,24 @@ document.getElementById("lang-btn").addEventListener("click",()=>{
   applyLang();
 });
 </script>
+
+<div class="image-modal" id="imageModal">
+  <img id="modalImg" src="" alt="">
+</div>
+
+<script>
+const modal=document.getElementById('imageModal');
+const modalImg=document.getElementById('modalImg');
+document.querySelectorAll('.gal-item img,.hero-card-img').forEach(img=>{
+  img.addEventListener('click',()=>{
+    modal.style.display='flex';
+    modalImg.src=img.src;
+  });
+});
+modal.addEventListener('click',()=>{
+  modal.style.display='none';
+});
+</script>
+
 </body>
 </html>
